@@ -63,7 +63,7 @@ function allrestaurants_function($atts)
 	<div class="java-locations">
 	<div class="side">
 	<input id="searchInput" type="text" placeholder="Search">
-	<span id="suggestionsList"></span>
+	<div id="suggestionsList"></div>
 	<div id="sidebar"></div>
 	</div>
 	<div class="allrestaurants" id="stationMap">

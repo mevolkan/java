@@ -5,12 +5,13 @@ function debounce(func, wait) {
     return function executedFunction(...args) {
         const later = () => {
             clearTimeout(timeout);
-            func(...args);
+            func.apply(this, args);
         };
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
     };
 }
+
 
 function fetchStation() {
     const map = L.map('stationMap').setView([-15.4166534, 28.2737131], 5);
@@ -36,6 +37,7 @@ function fetchStation() {
                 maxlon = -200;
 
             const suggestions = data.map((dataElement) => dataElement.NewName);
+            const markers = []; // Define markers array here
 
             // Update suggestions smoothly as the user types
             const debouncedUpdateSuggestions = debounce(updateSuggestions, 300);
@@ -45,11 +47,9 @@ function fetchStation() {
                 const filteredSuggestions = suggestions.filter((suggestion) =>
                     suggestion.toLowerCase().includes(inputValue)
                 );
-                debouncedUpdateSuggestions(filteredSuggestions);
+                debouncedUpdateSuggestions(filteredSuggestions, markers, map, sidebar);
             });
-
-            const markers = [];
-
+            
             data.forEach((dataElement) => {
                 if (!dataElement.GPSCoodinates || dataElement.GPSCoodinates.length === 0) {
                     return;
@@ -104,21 +104,21 @@ function fetchStation() {
             }, 1);
 
             // Update suggestions in the search box
-            updateSuggestions(suggestions, markers, map);
+            updateSuggestions(suggestions, markers, map, sidebar);
         })
         .catch((error) => {
             console.log(error);
         });
 }
 
-function updateSuggestions(suggestions, markers, map) {
-    const suggestionsList = document.getElementById('suggestionsList');
-    suggestionsList.innerHTML = '';
+function updateSuggestions(suggestions, markers, map, sidebar) {
+    const searchResults = document.createElement('div');
+    searchResults.classList.add('search-results');
 
     suggestions.forEach((suggestion) => {
         const listItem = document.createElement('div');
         listItem.textContent = suggestion;
-        listItem.classList.add('suggestion-item');
+        listItem.classList.add('search-item');
         listItem.addEventListener('click', () => {
             const selectedMarker = markers.find((markerObj) => markerObj.name === suggestion);
             if (selectedMarker) {
@@ -126,8 +126,27 @@ function updateSuggestions(suggestions, markers, map) {
                 map.setView(marker.getLatLng(), 15);
                 marker.openPopup();
             }
-            suggestionsList.innerHTML = ''; // Hide the search suggestions
+            sidebar.innerHTML = ''; // Clear the sidebar
+            fetchAllStations(markers, sidebar, map); // Populate the sidebar with all stations
         });
-        suggestionsList.appendChild(listItem);
+        searchResults.appendChild(listItem);
+    });
+
+    sidebar.innerHTML = ''; // Clear the sidebar
+    sidebar.appendChild(searchResults);
+}
+
+function fetchAllStations(markers, sidebar, map) {
+    // Repopulate the sidebar with all stations
+    markers.forEach((markerObj) => {
+        const listItem = document.createElement('div');
+        listItem.textContent = markerObj.name;
+        listItem.classList.add('sidebar-item');
+        listItem.addEventListener('click', () => {
+            const marker = markerObj.marker;
+            map.setView(marker.getLatLng(), 15);
+            marker.openPopup();
+        });
+        sidebar.appendChild(listItem);
     });
 }
