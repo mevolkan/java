@@ -1,0 +1,30 @@
+#stationMap {
+    height: 600px;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+#sidebar {
+    overflow: scroll;
+    height: 513px;
+}
+
+#sidebar>div.sidebar-item {
+    margin-bottom: 5px;
+}
+
+.java-locations {
+    display: flex;
+}
+
+.side {
+    padding: 20px;
+    background-color: #EAE6DE;
+}
+
+#searchInput {
+    background-color: #fff;
+}
