@@ -12,8 +12,9 @@
     height: 513px;
 }
 
-#sidebar>div.sidebar-item {
+#sidebar>div.sidebar-item:not(:last-child) {
     margin-bottom: 5px;
+    border-bottom: 1px solid #B6403F;
 }
 
 .java-locations {
@@ -27,4 +28,8 @@
 
 #searchInput {
     background-color: #fff;
+}
+#stationMap .leaflet-popup-content{
+    margin: 5px;
+    padding: 5px;
 }
