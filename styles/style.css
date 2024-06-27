@@ -14,7 +14,7 @@
 
 #sidebar>div.sidebar-item:not(:last-child) {
     margin-bottom: 5px;
-    border-bottom: 1px solid #B6403F;
+    border-bottom: 1px solid RGBa(182, 64, 63,10%);
 }
 
 .java-locations {
@@ -28,8 +28,15 @@
 
 #searchInput {
     background-color: #fff;
+    border-radius: 23px;
 }
 #stationMap .leaflet-popup-content{
     margin: 5px;
     padding: 5px;
 }
+.leaflet-popup-content-wrapper{
+    border-radius: 20px;
+}
+.leaflet-popup-content img {
+    border-radius: 20px;
+  }
