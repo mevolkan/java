@@ -1,42 +1,436 @@
 [
   {
-    "Name": "Java House - Kimathi Street",
+    "Name": "Java House ABC Place",
     "GPSCoodinates": [
-      -1.2831526,
-      36.8189962
+      -1.2598081,36.7761865
     ],
-    "Contact": "0725412164"
+    "Contact": ""
   },
   {
-    "Name": "Java House - Mama Ngina St",
+    "Name": "Java House Adams Arcade",
     "GPSCoodinates": [
-      -1.2858491,
-      36.820537
+      -1.3010381,36.780632
     ],
-    "Contact": "0721494049"
+    "Contact": ""
   },
   {
-    "Name": "Java House - Capital Centre",
+    "Name": "Java house aga Khan Hospital",
     "GPSCoodinates": [
-      -1.3167177,
-      36.8298206
+      -1.3010381,36.780632
     ],
-    "Contact": "0701283292"
+    "Contact": ""
   },
   {
-    "Name": "Java House",
+    "Name": "Java House Aga Khan Dr plaza",
     "GPSCoodinates": [
-      -4.0223954,
-      39.7171188
+      -1.2775066,36.779915
     ],
-    "Contact": "0718543579"
+    "Contact": ""
   },
   {
-    "Name": "Java House - Lugogo By-Pass, Kampala, Uganda",
+    "Name": "Java House Airport View",
     "GPSCoodinates": [
-      0.3270241,
-      32.6018447
+      -1.327936,36.8826837
     ],
-    "Contact": "+256751933760"
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Airside (JKIA)",
+    "GPSCoodinates": [
+      -1.3120327,36.7645922
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Capital Centre",
+    "GPSCoodinates": [
+      -1.3167177,36.8346915
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Ciata Mall",
+    "GPSCoodinates": [
+      -1.2264507,36.8387466
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Mama Ngina Street",
+    "GPSCoodinates": [
+      -1.2858491,36.823111
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Embassy House",
+    "GPSCoodinates": [
+      -1.2908418,36.8218525
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Parklands Road",
+    "GPSCoodinates": [
+      -1.267232,36.8172483
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Galleria",
+    "GPSCoodinates": [
+      -1.3434212,36.7657184
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Garden City",
+    "GPSCoodinates": [
+      -1.2874419,36.7398195
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Express Gigiri",
+    "GPSCoodinates": [
+      -1.2874419,36.7398195
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Gigiri",
+    "GPSCoodinates": [
+      -1.287096,36.7398191
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Greenspan",
+    "GPSCoodinates": [
+      -1.2895871,36.9009077
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Hurlingham",
+    "GPSCoodinates": [
+      -1.2952849,36.7994159
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Junction Mall",
+    "GPSCoodinates": [
+      -1.2981938,36.7621677
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Karen",
+    "GPSCoodinates": [
+      -1.322729,36.7080052
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Kenya Re",
+    "GPSCoodinates": [
+      -1.2804813,36.7612695
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Kimathi Street",
+    "GPSCoodinates": [
+      -1.283158,36.8215711
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House KMA Centre",
+    "GPSCoodinates": [
+      -1.2981996,36.8113411
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Landside (JKIA)",
+    "GPSCoodinates": [
+      -1.3314414,36.9193776
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Lavington",
+    "GPSCoodinates": [
+      -1.2793255,36.770554
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Lenana Road",
+    "GPSCoodinates": [
+      -1.2890906,36.7915509
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Lunga Lunga",
+    "GPSCoodinates": [
+      -1.3087044,36.8608005
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Monrovia Street",
+    "GPSCoodinates": [
+      -1.2813534,36.8132721
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Express Kileleshwa",
+    "GPSCoodinates": [
+      -1.2812836,36.8055472
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Kilimani",
+    "GPSCoodinates": [
+      -1.2826659,36.7997589
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Prestige Plaza",
+    "GPSCoodinates": [
+      -1.300238,36.7867239
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Rosslyn Riviera",
+    "GPSCoodinates": [
+      -1.2159349,36.7991867
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Sarit Centre",
+    "GPSCoodinates": [
+      -1.260966,36.80202
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House South C",
+    "GPSCoodinates": [
+      -1.3221978,36.8273837
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Thika Road Mall (TRM)",
+    "GPSCoodinates": [
+      -1.222937,36.8750251
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Uniafric",
+    "GPSCoodinates": [
+      -1.2746958,36.7816453
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Upperhill",
+    "GPSCoodinates": [
+      -1.2929566,36.8061483
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Orbit Place",
+    "GPSCoodinates": [
+      -1.2948308,36.792568
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Valley Arcade",
+    "GPSCoodinates": [
+      -1.2906419,36.770248
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Waiyaki Way",
+    "GPSCoodinates": [
+      -1.2600012,36.7855401
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Westlands Square",
+    "GPSCoodinates": [
+      -1.2638655,36.8024324
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Yaya Centre",
+    "GPSCoodinates": [
+      -1.2600012,36.7855401
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House links road",
+    "GPSCoodinates": [
+      -4.0223954,39.7196937
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Kisumu Westend",
+    "GPSCoodinates": [
+      -2.1910161,34.591816
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Nakuru",
+    "GPSCoodinates": [
+      -0.2867031,36.0639887
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Nanyuki",
+    "GPSCoodinates": [
+      0.0181897,37.0745807
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Naivasha",
+    "GPSCoodinates": [
+      -0.6101654,36.2352407
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java house Highway mall",
+    "GPSCoodinates": [
+      -1.3011122,36.8250051
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Eastleigh ",
+    "GPSCoodinates": [
+      -1.2796356,36.8470997
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java house express Nairobi hospital",
+    "GPSCoodinates": [
+      -1.2980492,36.7928869
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Phoenix",
+    "GPSCoodinates": [
+      -1.2980492,36.7928869
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Standard street",
+    "GPSCoodinates": [
+      -1.2908471,36.8038569
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Mbagathi Way",
+    "GPSCoodinates": [
+      -1.2929378,36.7775452
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Machakos",
+    "GPSCoodinates": [
+      -1.278831,36.5174074
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Nyali",
+    "GPSCoodinates": [
+      -4.0177503,39.7130944
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Diani",
+    "GPSCoodinates": [
+      -4.290694,39.5828691
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java on the Go - Kimende",
+    "GPSCoodinates": [
+      -0.9881942,36.6303177
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java on the go Muthaiga",
+    "GPSCoodinates": [
+      -1.2499691,36.8205855
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Express Gertrude",
+    "GPSCoodinates": [
+      -1.2560576,36.8296132
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java house express langata",
+    "GPSCoodinates": [
+      -1.2668851,36.7211933
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java house express ojijo",
+    "GPSCoodinates": [
+      -1.267101,36.811751
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java house express Loresho",
+    "GPSCoodinates": [
+      -1.251486,36.7546222
+    ],
+    "Contact": ""
+  },
+  {
+    "Name": "Java House Express Karen hospital ",
+    "GPSCoodinates": [
+      -1.336137,36.7264393
+    ],
+    "Contact": ""
   }
 ]
