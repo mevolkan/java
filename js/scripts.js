@@ -13,7 +13,7 @@ function debounce(func, wait) {
 }
 
 function fetchStation() {
-  const map = L.map("stationMap").setView([-15.4166534, 28.2737131], 5);
+  const map = L.map("stationMap").setView([0.1768696,37.9083264], 10);
   const sidebar = document.getElementById("sidebar");
   const searchInput = document.getElementById("searchInput");
   const suggestionsList = document.getElementById("suggestionsList");

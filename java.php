@@ -59,17 +59,19 @@ function allrestaurants_function($atts)
 		true
 	);
 
-	$displayStations = ' 
+	$displayStations = '
 	<div class="java-locations">
-	<div class="side">
-	<input id="searchInput" type="text" placeholder="Search">
-	<div id="suggestionsList"></div>
-	<div id="sidebar"></div>
+		<div class="side">
+			<input id="searchInput" type="text" placeholder="Search">
+			<div id="suggestionsList"></div>
+			<div id="sidebar"></div>
+		</div>
+		<div class="allrestaurants" id="stationMap">
+		</div>
 	</div>
-	<div class="allrestaurants" id="stationMap">
-  </div>
-  </div>
-   ';
+	';
+	
 	return $displayStations;
+	
 	}
 add_shortcode('all-restaurants', 'allrestaurants_function');
