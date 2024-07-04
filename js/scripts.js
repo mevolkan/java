@@ -13,8 +13,9 @@ function debounce(func, wait) {
 }
 
 function fetchStation() {
-  const map = L.map("stationMap").setView([0.1768696,37.9083264], 10);
+  const map = L.map("stationMap").setView([0.1768696, 37.9083264], 10);
   const sidebar = document.getElementById("sidebar");
+  const sideContainer = document.getElementById("side");
   const searchInput = document.getElementById("searchInput");
   const suggestionsList = document.getElementById("suggestionsList");
 
@@ -23,7 +24,9 @@ function fetchStation() {
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   }).addTo(map);
 
-  fetch("../wp-content/plugins/java/java.json")
+  const javaDataUrl = `${siteUrl.url}wp-content/plugins/java/java.json`;
+
+  fetch(javaDataUrl)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Java data not loaded");
@@ -31,40 +34,39 @@ function fetchStation() {
       return response.json();
     })
     .then((data) => {
+      let markers = [];
       let minlat = 200,
-        minlon = 200,
-        maxlat = -200,
-        maxlon = -200;
+          minlon = 200,
+          maxlat = -200,
+          maxlon = -200;
 
       const suggestions = data.map((dataElement) => dataElement.Name);
-      const markers = []; // Define markers array here
 
       // Update suggestions smoothly as the user types
       const debouncedUpdateSuggestions = debounce(updateSuggestions, 300);
 
       searchInput.addEventListener("input", () => {
-        const inputValue = searchInput.value.toLowerCase();
+        const inputValue = searchInput.value.trim().toLowerCase();
         const filteredSuggestions = suggestions.filter((suggestion) =>
           suggestion.toLowerCase().includes(inputValue)
         );
-        debouncedUpdateSuggestions(filteredSuggestions, markers, map, sidebar);
+        debouncedUpdateSuggestions(filteredSuggestions, markers, map, suggestionsList, sideContainer);
       });
 
       data.forEach((dataElement) => {
-        if (
-          !dataElement.GPSCoodinates ||
-          dataElement.GPSCoodinates.length === 0
-        ) {
+        if (!dataElement.GPSCoodinates || dataElement.GPSCoodinates.length === 0) {
           return;
         }
 
         const latitude = dataElement.GPSCoodinates[0];
         const longitude = dataElement.GPSCoodinates[1];
 
-        const customPopup = `<img src="https://brand2d.tech/javagroup/wp-content/uploads/2024/05/7663212f1f852b9ccf6479da781bbbe5-min-scaled-e1715182731443.jpg" alt="Java House">
-                <b>${dataElement.Name}</b><br>
-                                     <a href="https://maps.google.com/?q=${latitude},${longitude}">Open Location</a><br>
-                                     <a href="tel:${dataElement.Contact}">${dataElement.Contact}</a>`;
+        const customPopup = `
+          <img src="https://brand2d.tech/javagroup/wp-content/uploads/2024/05/7663212f1f852b9ccf6479da781bbbe5-min-scaled-e1715182731443.jpg" alt="Java House">
+          <b>${dataElement.Name}</b><br>
+          <a class="link" href="https://maps.google.com/?q=${latitude},${longitude}">Open Location</a><br>
+          <a href="tel:${dataElement.Contact}">${dataElement.Contact}</a>
+        `;
 
         const customOptions = {
           maxWidth: "500",
@@ -90,60 +92,62 @@ function fetchStation() {
         listItem.innerHTML = `<b>${dataElement.Name}</b>`;
         listItem.addEventListener("click", () => {
           map.setView(stationLocation, 15);
-          marker.openPopup(); // Open the associated marker's popup
+          marker.openPopup();
           searchInput.value = ""; // Clear the search box
-          suggestionsList.innerHTML = ""; // Hide the search suggestions
+          suggestionsList.innerHTML = ""; // Clear the suggestions list
+          fetchAllStations(markers, sidebar, map); // Populate the sidebar with all stations
         });
         sidebar.appendChild(listItem);
       });
 
-      const c1 = L.latLng(minlat, minlon);
-      const c2 = L.latLng(maxlat, maxlon);
+      const bounds = L.latLngBounds(L.latLng(minlat, minlon), L.latLng(maxlat, maxlon));
+      map.fitBounds(bounds);
 
-      map.fitBounds(L.latLngBounds(c1, c2));
-
-      // Correct zoom to fit markers
+      // Adjust zoom to fit markers
       setTimeout(() => {
         map.setZoom(map.getZoom() - 11);
       }, 1);
-
-      // Update suggestions in the search box
-      updateSuggestions(suggestions, markers, map, sidebar);
     })
     .catch((error) => {
-      console.log(error);
+      console.error("Error fetching Java data:", error);
     });
 }
 
-function updateSuggestions(suggestions, markers, map, sidebar) {
-  const searchResults = document.createElement("div");
-  searchResults.classList.add("search-results");
+function updateSuggestions(suggestions, markers, map, suggestionsList, sideContainer) {
+  // Clear previous suggestions only if there are new suggestions to show
+  if (suggestions.length > 0) {
+    const searchResults = document.createElement("div");
+    searchResults.classList.add("search-results");
 
-  suggestions.forEach((suggestion) => {
-    const listItem = document.createElement("div");
-    listItem.textContent = suggestion;
-    listItem.classList.add("search-item");
-    listItem.addEventListener("click", () => {
-      const selectedMarker = markers.find(
-        (markerObj) => markerObj.name === suggestion
-      );
-      if (selectedMarker) {
-        const marker = selectedMarker.marker;
-        map.setView(marker.getLatLng(), 15);
-        marker.openPopup();
-      }
-      sidebar.innerHTML = ""; // Clear the sidebar
-      fetchAllStations(markers, sidebar, map); // Populate the sidebar with all stations
+    suggestions.forEach((suggestion) => {
+      const listItem = document.createElement("div");
+      listItem.textContent = suggestion;
+      listItem.classList.add("search-item");
+      listItem.addEventListener("click", () => {
+        const selectedMarker = markers.find((markerObj) => markerObj.name === suggestion);
+        if (selectedMarker) {
+          const marker = selectedMarker.marker;
+          map.setView(marker.getLatLng(), 15);
+          marker.openPopup();
+          suggestionsList.innerHTML = ""; // Clear the suggestions list
+          fetchAllStations(markers, sidebar, map); // Populate the sidebar with all stations
+        }
+        sideContainer.style.display = "block";
+      });
+      searchResults.appendChild(listItem);
     });
-    searchResults.appendChild(listItem);
-  });
 
-  sidebar.innerHTML = ""; // Clear the sidebar
-  sidebar.appendChild(searchResults);
+    suggestionsList.innerHTML = ""; // Clear previous suggestions
+    suggestionsList.appendChild(searchResults);
+  } else {
+    suggestionsList.innerHTML = ""; // Clear the suggestions list if no suggestions
+  }
 }
+
 
 function fetchAllStations(markers, sidebar, map) {
-  // Repopulate the sidebar with all stations
+  sidebar.innerHTML = ""; // Clear the sidebar
+
   markers.forEach((markerObj) => {
     const listItem = document.createElement("div");
     listItem.textContent = markerObj.name;

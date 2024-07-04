@@ -13,27 +13,26 @@
 
 if (!defined('ABSPATH')) {
 	exit;
-	}
+}
 
 //add the javascript and css to display the calculator
 
 function my_javascripts()
-	{
-	wp_enqueue_style('RubisApiCSS', plugin_dir_url(__FILE__) . 'styles/style.css', false);
+{
+	wp_enqueue_style('JavaCSS', plugin_dir_url(__FILE__) . 'styles/style.css', false);
 	wp_enqueue_style(
 		'LeafletCSS',
 		'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
 		true
 	);
-
-	}
+}
 add_action('wp_enqueue_scripts', 'my_javascripts');
 
 //[all-restaurants]
 
 
 function allrestaurants_function($atts)
-	{
+{
 	wp_enqueue_script(
 		'LeafletJS',
 		'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
@@ -52,26 +51,32 @@ function allrestaurants_function($atts)
 		true
 	);
 	wp_enqueue_script(
-		'StationJS',
+		'BranchesJS',
 		plugin_dir_url(__FILE__) . 'js/scripts.js',
 		array('jquery'),
 		'1.0',
 		true
 	);
+	wp_localize_script('BranchesJS', 'siteUrl', array(
+        'url' => esc_url(home_url('/'))
+    ));
 
 	$displayStations = '
-	<div class="java-locations">
-		<div class="side">
-			<input id="searchInput" type="text" placeholder="Search">
-			<div id="suggestionsList"></div>
-			<div id="sidebar"></div>
+<div class="java-locations">
+	<div id="side" class="side">
+		<div id="sidebar"></div>
+	</div>
+	<div class="map-container">
+		<div class="suggestions-container">
+		<input id="searchInput" type="text" placeholder="Search">
+		<div id="suggestionsList"></div>
 		</div>
 		<div class="allrestaurants" id="stationMap">
 		</div>
 	</div>
+</div>
 	';
-	
+
 	return $displayStations;
-	
-	}
+}
 add_shortcode('all-restaurants', 'allrestaurants_function');
