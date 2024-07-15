@@ -15,9 +15,10 @@ if (!defined('ABSPATH')) {
 	exit;
 }
 
-//add the javascript and css to display the calculator
+//[all-restaurants]
 
-function my_javascripts()
+
+function allrestaurants_function($atts)
 {
 	wp_enqueue_style('JavaCSS', plugin_dir_url(__FILE__) . 'styles/style.css', false);
 	wp_enqueue_style(
@@ -25,14 +26,7 @@ function my_javascripts()
 		'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
 		true
 	);
-}
-add_action('wp_enqueue_scripts', 'my_javascripts');
 
-//[all-restaurants]
-
-
-function allrestaurants_function($atts)
-{
 	wp_enqueue_script(
 		'LeafletJS',
 		'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
