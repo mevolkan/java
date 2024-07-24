@@ -80,3 +80,7 @@
 .leaflet-container a.link {
     color: #fff !important;
 }
+
+.leaflet-container a {
+    color: #fff;
+}
